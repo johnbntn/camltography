@@ -1,0 +1,4 @@
+(executable
+ (public_name camltography)
+ (name main)
+ (libraries camltography))
