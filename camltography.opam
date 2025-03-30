@@ -12,6 +12,7 @@ bug-reports: "https://github.com/johnbntn/camltography/issues"
 depends: [
   "dune" {>= "3.17"}
   "ocaml"
+  "base"
   "odoc" {with-doc}
 ]
 build: [

@@ -1,2 +1,3 @@
 (library
- (name lwe))
+ (name lwe)
+ (libraries base))
