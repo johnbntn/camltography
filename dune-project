@@ -5,11 +5,11 @@
 (generate_opam_files true)
 
 (source
- (github username/reponame))
+ (github johnbntn/camltography))
 
-(authors "Author Name <author@example.com>")
+(authors "John Benton <jbenton4494@gmail.com>")
 
-(maintainers "Maintainer Name <maintainer@example.com>")
+(maintainers "John Benton <jbenton4494@gmail.com>")
 
 (license LICENSE)
 
@@ -17,9 +17,9 @@
 
 (package
  (name camltography)
- (synopsis "A short synopsis")
+ (synopsis "Learn Cryptography with Ocaml")
  (description "A longer description")
- (depends ocaml)
+ (depends ocaml base)
  (tags
   ("add topics" "to describe" your project)))
 
