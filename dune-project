@@ -19,7 +19,7 @@
  (name camltography)
  (synopsis "Learn Cryptography with Ocaml")
  (description "A longer description")
- (depends ocaml base)
+ (depends ocaml base owl)
  (tags
   ("add topics" "to describe" your project)))
 
