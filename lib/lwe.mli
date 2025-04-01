@@ -1,9 +1,6 @@
 (* 
-- encrypt
-- decrypt
-
 Things to do:
-    - Generate noise
+    - add modulus to make it legit
     - Generate random vector
     - Generate secret key
     - auto gen docs
@@ -11,10 +8,13 @@ Things to do:
     - use Owl ndarrays instead of arrays
 *)
 
-type t
+type cypher
 
-val encrypt : m:int -> s:int list -> int list -> t
-(** Encrypts message passed in as integer. msg -> secret key -> vector -> .*)
+val encrypt : m:int -> s:int list -> int list -> cypher
+(** Encrypts message passed in as integer. msg -> secret key -> vector -> t*)
 
-val decrypt : cypher:t -> s:int list -> int
+val decrypt : cypher -> int list -> int
 (** Decrypts cypher with secret key.*)
+
+val add_cyphers : cypher -> cypher -> cypher
+(** Add two cyphers together *)

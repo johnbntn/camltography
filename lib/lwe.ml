@@ -1,7 +1,7 @@
 (* open Owl *)
 module Owl_vector = Owl_dense_ndarray_generic
 
-type t = int list * int
+type cypher = int list * int
 
 let dot = List.fold_left2 (fun s x y -> s + x * y) 0
 
@@ -27,13 +27,20 @@ let rec generate_noise sd =
   | false -> generate_noise sd
 
 let encrypt ~m:m ~s:s a = 
-  let noise = generate_noise 1. in
+  let noise = generate_noise 3. in
   let product = (dot a s) + (m lsl 28) in
   let obs_product = product + noise in
   (a, obs_product)
 
-let decrypt ~cypher:cypher ~s:secret = 
-  let a = match cypher with |(_, b) ->  b in 
-  let obs = match cypher with |(a, _) -> a in
-  let obs_plaintext = a - (dot secret obs) in
+let decrypt cypher secret = 
+  let a = match cypher with |(a, _) ->  a in 
+  let obs = match cypher with |(_, b) -> b in
+  let obs_plaintext = obs - (dot secret a) in
   (round_power_of_2 obs_plaintext 28) lsr 28
+
+let add_cyphers c1 c2 =
+  let a = match c1 with |(a, _) -> a in
+  let obs_pt1 = match c1 with |(_, b) -> b in
+  let obs_pt2 = match c2 with |(_, b) -> b in
+  let new_obs_pt = obs_pt1 + obs_pt2 in
+  (a, new_obs_pt)
