@@ -1,3 +1,4 @@
 (library
  (name lwe)
+ (public_name camltography)
  (libraries base owl))
